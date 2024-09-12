@@ -7,11 +7,20 @@ body{
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
-    width: 100%;
+   }
+th{
+    background-color: lightgrey;
+}
+  .title{
+    width: 60%;
   }
-  th{
-    width: 70%;
+  .price{
+    width: 10%;
   }
+  .action{
+    width: 30%;
+  }
+
   button{
     border-radius: 20%;
     border-style: none;
