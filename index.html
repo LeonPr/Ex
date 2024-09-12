@@ -16,11 +16,10 @@
         <tbody class="book-data"></tbody>
     </table>
     <button class="add-book" onclick="onAddBook(this)">Add</button>
-    <form onsubmit="onAddSubmit(event)">
-        
+    <form onsubmit="onAddSubmit(event)">      
         <input type="text" id="name" class="new-book" style="display: none;" placeholder="Enter book name">
         <input type="text" id="price" class="new-book" style="display: none;" placeholder="Book price">
-        <button class="new-book" style="display: none;">Insert</button>
+        <button class="new-book insert" style="display: none;">Insert</button>
     </form>
 
 
@@ -31,7 +30,7 @@
             <button class="update-price">Update</button>
         </form>
     </dialog>
-
+    <script src="js/services/util.service.js"></script>
     <script src="js/services/book.service.js"></script>
     <script src="js/book.controller.js"></script>
 </body>
