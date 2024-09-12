@@ -1,9 +1,9 @@
 'use strict'
 
 var gBooks = [
-    { id: 'b00', title: 'The Adventures of Lori Ipsi', price: 120 },
-    { id: 'b01', title: 'Word Atlas', price: 120 },
-    { id: 'b02', title: 'Zorba The Greek', price: 120 },
+    { id: 'b00', title: 'The Adventures of Lori Ipsi', price: 120,imgUrl: 'lori-ipsi.jpg' },
+    { id: 'b01', title: 'Word Atlas', price: 120,imgUrl: 'Word-Atlas.jpg' },
+    { id: 'b02', title: 'Zorba The Greek', price: 120,imgUrl: 'Zorba-The-Greek.jpg' },
 ]
 
 
@@ -23,7 +23,8 @@ function insertBook(inputName, inputPrice) {
     var book = {
         id: makeId(5),
         title: inputName,
-        price: inputPrice
+        price: inputPrice,
+        imgUrl: `${inputName}.jpg`
     }
     gBooks.push(book)
 }
