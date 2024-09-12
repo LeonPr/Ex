@@ -1,8 +1,29 @@
 * {
     box-sizing: border-box;
 }
-
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
+    width: 100%;
+  }
+  th{
+    width: 70%;
+  }
+  button{
+    border-radius: 20%;
+    border-style: none;
+    font-weight: bold;
+    margin-left: 1em;
+  }
+  .read{
+    background-color: lightblue;
+  }
+  .update{
+    background-color: rgb(196, 196, 40);
+  }
+  .delete{
+    background-color: orange;
   }
