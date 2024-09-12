@@ -25,10 +25,18 @@ function onRemoveBook(elBook, bookId) {
 }
 
 function onUpdateBook(elBook, bookId) {
-    openDialog(bookId)
+    openUpdateDialog(bookId)
 }
 
-function openDialog(bookId) {
+function onAddBook(elAdd){
+
+    const elInput=document.querySelectorAll('.new-book')
+    elInput.forEach(elem => {if(elem.style.display==='none') elem.style.display='Inline-Block'
+                              else elem.style.display='none'
+    } )
+}
+
+function openUpdateDialog(bookId) {
 
     const elDialog = document.querySelector('.update-dialog')
     const elDetails = elDialog.querySelector('pre span')
