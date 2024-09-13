@@ -11,11 +11,6 @@
         <h1>Book Shop</h1>
     </header>
     <button class="add-book" onclick="onAddBook(this)">Add</button>
-    <form onsubmit="onAddSubmit(event)">      
-        <input type="text" id="name" class="new-book" style="display: none;" placeholder="Enter book name">
-        <input type="text" id="price" class="new-book" style="display: none;" placeholder="Book price">
-        <button class="new-book insert" style="display: none;">Insert</button>
-    </form>
     <table>
         <tr class="book-title">
             <th class="title">Title</th>
@@ -24,20 +19,7 @@
         </tr>
         <tbody class="book-data"></tbody>
     </table>
-    <button class="add-book" onclick="onAddBook(this)">Add</button>
-    <form onsubmit="onAddSubmit(event)">      
-        <input type="text" id="name" class="new-book" style="display: none;" placeholder="Enter book name">
-        <input type="text" id="price" class="new-book" style="display: none;" placeholder="Book price">
-        <button class="new-book insert" style="display: none;">Insert</button>
-    </form>
-
-
     <dialog class="update-dialog">
-        <form method="dialog" onsubmit="onUpdateClick(event)">
-            <pre>Catalog No` :  <span></span></pre>
-            <input type="text" placeholder="Enter new price">
-            <button class="update-price">Update</button>
-        </form>
     </dialog>
    
     <script src="js/services/util.service.js"></script>

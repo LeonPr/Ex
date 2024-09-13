@@ -16,6 +16,8 @@ function removeBook(bookId) {
 }
 
 function updateBook(newPrice, bookId) {
+    console.log('bookId', bookId);
+    console.log('newPrice', newPrice);
     const updateBook = gBooks.find(book => book.id === bookId)
     updateBook.price = newPrice
 }

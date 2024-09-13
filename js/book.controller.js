@@ -18,6 +18,26 @@ function render() {
 
     elBook.innerHTML = strHTML.join('')
 }
+function renderUpdateDialog(){
+    const elDialog = document.querySelector('.update-dialog')
+    const strHTML=`<form method="dialog" onsubmit="onUpdateClick(event)">
+                        <pre>Catalog No' :  <span></span></pre>
+                        <input type="text" placeholder="Enter new price">
+                        <button class="update-price">Update</button>
+                   </form>`
+    elDialog.innerHTML = strHTML
+}
+function renderAddDialog(){
+    const elDialog = document.querySelector('.update-dialog')
+    const strHTML=`<form method="dialog" onsubmit="onAddSubmit(event)">  
+                        <header>Enter book details</header>
+                        <br>
+                        <input type="text" id="name" class="new-book"  placeholder="Enter book name">
+                        <input type="text" id="price" class="new-book"  placeholder="Book price">
+                        <button class="new-book insert" >Insert</button>
+                   </form>`
+    elDialog.innerHTML = strHTML
+}
 
 function onRemoveBook(elBook, bookId) {
     RemoveBook(bookId)
@@ -29,12 +49,16 @@ function onUpdateBook(elBook, bookId) {
 }
 
 function onAddBook(elAdd) {
+    renderAddDialog()
+    const elDialog = document.querySelector('.update-dialog')
+    elDialog.showModal()
 
-    const elInput = document.querySelectorAll('.new-book')
+
+    /*const elInput = document.querySelectorAll('.new-book')
     elInput.forEach(elem => {
         if (elem.style.display === 'none') elem.style.display = 'Inline-Block'
         else elem.style.display = 'none'
-    })
+    })*/
 }
 function onAddSubmit(ev) {
     ev.stopPropagation()
@@ -51,7 +75,7 @@ function onAddSubmit(ev) {
     render()
 }
 function openUpdateDialog(bookId) {
-
+    renderUpdateDialog()
     const elDialog = document.querySelector('.update-dialog')
     const elDetails = elDialog.querySelector('pre span')
 
@@ -61,6 +85,7 @@ function openUpdateDialog(bookId) {
 
 function onUpdateClick(ev) {
     ev.stopPropagation()
+    
     const elDialog = document.querySelector('.update-dialog')
     const elDetails = elDialog.querySelector('pre span')
     const elInput = document.querySelector('input')
