@@ -1,7 +1,7 @@
 'use strict'
 
-const ARROW_DOWN='⬇'
-const CLEAR_SERCH='✖'
+const ARROW_DOWN = '⬇'
+const CLEAR_SERCH = '✖'
 
 function onInit() {
     render(getBooks())
@@ -66,14 +66,28 @@ function onUpdateClick(ev) {
     render(getBooks())
 }
 
-function onSortByTitle(elTitle){
-
-    (elTitle.innerText===ARROW_DOWN) ? elTitle.innerText=CLEAR_SERCH :elTitle.innerText=ARROW_DOWN
-
-
-
+function onSortByTitle(elTitle) {
+    if (elTitle.innerText === ARROW_DOWN) {
+        elTitle.innerText = CLEAR_SERCH
+        const booksData = getBooks()
+        const sortedBooks = booksData.map(book => { return book })
+            .sort((book1, book2) => book1.title.toLowerCase().localeCompare(book2.title.toLowerCase()))
+        render(sortedBooks)
+    } else {
+        elTitle.innerText = ARROW_DOWN
+        render(getBooks())
+    }
 }
 
-function onSortByPrice(elPrice){
-    (elTitle.innerText===ARROW_DOWN) ? elTitle.innerText=CLEAR_SERCH :elTitle.innerText=ARROW_DOWN
+function onSortByPrice(elPrice) {
+    if (elPrice.innerText === ARROW_DOWN) {
+        elPrice.innerText = CLEAR_SERCH
+        const booksData = getBooks()
+        const sortedBooks = booksData.map(book => { return book })
+            .sort((book1, book2) => book1.price - book2.price)
+        render(sortedBooks)
+    } else {
+        elPrice.innerText = ARROW_DOWN
+        render(getBooks())
+    }
 }
