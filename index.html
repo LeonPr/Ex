@@ -24,6 +24,13 @@
         </tr>
         <tbody class="book-data"></tbody>
     </table>
+    <button class="add-book" onclick="onAddBook(this)">Add</button>
+    <form onsubmit="onAddSubmit(event)">      
+        <input type="text" id="name" class="new-book" style="display: none;" placeholder="Enter book name">
+        <input type="text" id="price" class="new-book" style="display: none;" placeholder="Book price">
+        <button class="new-book insert" style="display: none;">Insert</button>
+    </form>
+
 
     <dialog class="update-dialog">
         <form method="dialog" onsubmit="onUpdateClick(event)">
