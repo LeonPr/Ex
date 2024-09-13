@@ -5,7 +5,7 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 table, th, td {
-    margin-top: 2em;
+    margin-top: 1em;
     border: 1px solid black;
     border-collapse: collapse;
    }
@@ -29,6 +29,7 @@ th{
     margin-left: 1em;
   }
   .add-book{
+    margin-left: 0%;
     margin-top: 1em;
     height: 2em;
     width: 4em;

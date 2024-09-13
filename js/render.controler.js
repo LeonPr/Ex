@@ -1,8 +1,7 @@
 'use strict'
 
-
-function render() {
-    const booksData = getBooks()
+function render(booksData) {
+    //const booksData = getBooks()
     const elBook = document.querySelector('.book-data')
 
     const strHTML = booksData.map(book => `<tr><td>${book.title}</td>

@@ -1,12 +1,14 @@
 'use strict'
 
+
+
 function onInit() {
-    render()
+    render(getBooks())
 }
 
 function onRemoveBook(elBook, bookId) {
     removeBook(bookId)
-    render()
+    render(getBooks())
 }
 
 function onUpdateBook(elBook, bookId) {
@@ -39,7 +41,7 @@ function onAddSubmit(ev) {
         return
     }
     insertBook(inputName.value, inputPrice.value)
-    render()
+    render(getBooks())
 }
 
 function openUpdateDialog(bookId) {
@@ -60,5 +62,13 @@ function onUpdateClick(ev) {
 
     updateBook(elInput.value, elDetails.innerText)
     elInput.value = ''
-    render()
+    render(getBooks())
+}
+
+function onSortByTitle(elTitle){
+
+}
+
+function onSortByPrice(elPrice){
+
 }

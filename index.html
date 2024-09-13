@@ -8,13 +8,17 @@
 </head> 
 <body onload="onInit()">
     <header>
-        <h1>Book Shop</h1>
+        <h1 style="color: rgb(187, 156, 216);">Book Shop</h1>
     </header>
     <button class="add-book" onclick="onAddBook(this)">Add</button>
     <table>
         <tr class="book-title">
-            <th class="title">Title</th>
-            <th class="price">Price</th>
+            <th class="title">Title  
+                <button onclick="onSortByTitle(this)">⬇</button>
+            </th>
+            <th class="price">Price
+                <button onclick="onSortByPrice(this)">⬇</button>
+            </th>
             <th class="action">Actions</th>
         </tr>
         <tbody class="book-data"></tbody>
