@@ -59,7 +59,7 @@ function onUpdateClick(ev) {
 
     const elDialog = document.querySelector('.update-dialog')
     const elDetails = elDialog.querySelector('pre span')
-    const elInput = document.querySelector('input')
+    const elInput = elDialog.querySelector('input')
 
     updateBook(elInput.value, elDetails.innerText)
     elInput.value = ''
