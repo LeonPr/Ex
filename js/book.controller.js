@@ -10,16 +10,19 @@ function onInit() {
 function onRemoveBook(elBook, bookId) {
     removeBook(bookId)
     render(getBooks())
+    successMsg()
 }
 
 function onUpdateBook(elBook, bookId) {
     openUpdateDialog(bookId)
+ 
 }
 
 function onAddBook(elAdd) {
     renderAddDialog()
     const elDialog = document.querySelector('.update-dialog')
     elDialog.showModal()
+
 }
 
 function onReadClick(elBook, bookId) {
@@ -43,8 +46,20 @@ function onAddSubmit(ev) {
     }
     insertBook(inputName.value, inputPrice.value)
     render(getBooks())
+    successMsg()
 }
 
+function successMsg(){
+    renderSuccessDialog()
+    const elDialog = document.querySelector('.update-dialog')
+    elDialog.showModal()
+    setTimeout(closeDialog,2000)
+}
+
+function closeDialog(){
+    const elDialog = document.querySelector('.update-dialog')
+    elDialog.close()
+}
 function openUpdateDialog(bookId) {
     renderUpdateDialog()
     const elDialog = document.querySelector('.update-dialog')
@@ -52,6 +67,7 @@ function openUpdateDialog(bookId) {
 
     elDetails.innerText = bookId
     elDialog.showModal()
+    
 }
 
 function onUpdateClick(ev) {
@@ -64,6 +80,7 @@ function onUpdateClick(ev) {
     updateBook(elInput.value, elDetails.innerText)
     elInput.value = ''
     render(getBooks())
+    successMsg()
 }
 
 function onSortByTitle(elTitle) {

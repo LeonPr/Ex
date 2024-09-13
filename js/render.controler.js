@@ -48,3 +48,10 @@ function renderDetailsDialog(bookId) {
     elDialog.innerHTML = strHTML
 }
 
+function renderSuccessDialog() {
+    const elDialog = document.querySelector('.update-dialog')
+    const strHTML = `<form method="dialog" onsubmit="onUpdateClick(event)">
+                        <pre>Good job</pre>
+                   </form>`
+    elDialog.innerHTML = strHTML
+}
