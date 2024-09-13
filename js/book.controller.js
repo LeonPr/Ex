@@ -18,18 +18,18 @@ function render() {
 
     elBook.innerHTML = strHTML.join('')
 }
-function renderUpdateDialog(){
+function renderUpdateDialog() {
     const elDialog = document.querySelector('.update-dialog')
-    const strHTML=`<form method="dialog" onsubmit="onUpdateClick(event)">
+    const strHTML = `<form method="dialog" onsubmit="onUpdateClick(event)">
                         <pre>Catalog No' :  <span></span></pre>
                         <input type="text" placeholder="Enter new price">
                         <button class="update-price">Update</button>
                    </form>`
     elDialog.innerHTML = strHTML
 }
-function renderAddDialog(){
+function renderAddDialog() {
     const elDialog = document.querySelector('.update-dialog')
-    const strHTML=`<form method="dialog" onsubmit="onAddSubmit(event)">  
+    const strHTML = `<form method="dialog" onsubmit="onAddSubmit(event)">  
                         <header>Enter book details</header>
                         <br>
                         <input type="text" id="name" class="new-book"  placeholder="Enter book name">
@@ -39,8 +39,21 @@ function renderAddDialog(){
     elDialog.innerHTML = strHTML
 }
 
+function renderDetailsDialog(bookId) {
+    const book = getBook(bookId)
+    const elDialog = document.querySelector('.update-dialog')
+    const strHTML = `<form method="dialog" onsubmit="onReadSubmit(event)">  
+                      <header>Title : <span style="font-weight: bold; color: rgb(166, 106, 33);">${book.title}</span></header>
+                      <pre>Catalog No' :  <span>${book.id}</span></pre>
+                      <p>Price :  <span>${book.price}</span></p>
+                      <img src="img/${book.imgUrl}" alt="">
+                      <button class="new-book read" >close</button>
+                  </form>`
+    elDialog.innerHTML = strHTML
+}
+
 function onRemoveBook(elBook, bookId) {
-    RemoveBook(bookId)
+    removeBook(bookId)
     render()
 }
 
@@ -52,28 +65,31 @@ function onAddBook(elAdd) {
     renderAddDialog()
     const elDialog = document.querySelector('.update-dialog')
     elDialog.showModal()
-
-
-    /*const elInput = document.querySelectorAll('.new-book')
-    elInput.forEach(elem => {
-        if (elem.style.display === 'none') elem.style.display = 'Inline-Block'
-        else elem.style.display = 'none'
-    })*/
 }
+
+function onReadClick(elBook, bookId) {
+    renderDetailsDialog(bookId)
+    const elDialog = document.querySelector('.update-dialog')
+    elDialog.showModal()
+}
+
+function onReadSubmit(ev) {
+    ev.stopPropagation()
+}
+
 function onAddSubmit(ev) {
     ev.stopPropagation()
 
     const inputName = document.getElementById('name')
     const inputPrice = document.getElementById('price')
-    console.log('inputName', inputName.value === '');
-    console.log('inputPrice', inputPrice.value === '');
     if (inputName.value === '' || inputPrice.value === '') {
         alert('Both values must be entered')
         return
     }
-    insertBook(inputName.value,inputPrice.value)
+    insertBook(inputName.value, inputPrice.value)
     render()
 }
+
 function openUpdateDialog(bookId) {
     renderUpdateDialog()
     const elDialog = document.querySelector('.update-dialog')
@@ -85,7 +101,7 @@ function openUpdateDialog(bookId) {
 
 function onUpdateClick(ev) {
     ev.stopPropagation()
-    
+
     const elDialog = document.querySelector('.update-dialog')
     const elDetails = elDialog.querySelector('pre span')
     const elInput = document.querySelector('input')

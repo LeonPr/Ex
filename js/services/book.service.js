@@ -10,17 +10,20 @@ var gBooks = [
 function getBooks() {
     return gBooks
 }
+function getBook(bookId){
+    return gBooks.find(book => book.id === bookId)
+
+}
 function removeBook(bookId) {
     const indx = gBooks.findIndex(book => book.id === bookId)
     gBooks.splice(indx, 1)
 }
 
 function updateBook(newPrice, bookId) {
-    console.log('bookId', bookId);
-    console.log('newPrice', newPrice);
     const updateBook = gBooks.find(book => book.id === bookId)
     updateBook.price = newPrice
 }
+
 function insertBook(inputName, inputPrice) {
     var book = {
         id: makeId(5),
