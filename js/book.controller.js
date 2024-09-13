@@ -91,3 +91,14 @@ function onSortByPrice(elPrice) {
         render(getBooks())
     }
 }
+function onFilterInput() {
+    const booksData = getBooks()
+    const elFilter = document.querySelector('input')
+    const filteredBooks = booksData.filter( book => (book.title.includes(elFilter.value)))
+
+    render(filteredBooks)
+}
+function onCancelFilter(){
+    document.querySelector('input').value=''
+    render(getBooks())
+}

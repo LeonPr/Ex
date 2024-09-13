@@ -47,3 +47,4 @@ function renderDetailsDialog(bookId) {
                   </form>`
     elDialog.innerHTML = strHTML
 }
+

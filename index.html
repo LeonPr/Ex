@@ -11,6 +11,10 @@
         <h1 style="color: rgb(187, 156, 216);">Book Shop</h1>
     </header>
     <button class="add-book" onclick="onAddBook(this)">Add</button>
+    <div>
+        <input type="text" placeholder="Enter title name" oninput="onFilterInput()">
+        <button class="clear-filter" onclick="onCancelFilter()">❌</button>
+    </div>
     <table>
         <tr class="book-title">
             <th class="title">Title  
