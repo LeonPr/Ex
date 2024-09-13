@@ -1,11 +1,9 @@
 'use strict'
 
-var gBooks = [
-    { id: 'b00', title: 'The Adventures of Lori Ipsi', price: 120,imgUrl: 'lori-ipsi.jpg' },
-    { id: 'b01', title: 'Word Atlas', price: 120,imgUrl: 'Word-Atlas.jpg' },
-    { id: 'b02', title: 'Zorba The Greek', price: 120,imgUrl: 'Zorba-The-Greek.jpg' },
-]
+const EXBOOKS_KEY = 'books' 
 
+var gBooks=[]
+_createBooks()
 
 function getBooks() {
     return gBooks
@@ -17,19 +15,42 @@ function getBook(bookId){
 function removeBook(bookId) {
     const indx = gBooks.findIndex(book => book.id === bookId)
     gBooks.splice(indx, 1)
+    _saveBooks()
 }
 
 function updateBook(newPrice, bookId) {
     const updateBook = gBooks.find(book => book.id === bookId)
     updateBook.price = newPrice
+    _saveBooks()
 }
 
 function insertBook(inputName, inputPrice) {
-    var book = {
+    gBooks.push(_createBook(inputName, inputPrice))
+    _saveBooks()
+}
+function _createBooks(){
+    gBooks = loadFromStorage(EXBOOKS_KEY)
+
+    if(gBooks && gBooks.length !== 0) return
+
+    gBooks=[]
+    gBooks.push(_createBook('The Adventures of Lori Ipsi',120))
+    gBooks.push(_createBook('Word Atlas',300))
+    gBooks.push(_createBook('Zorba The Greek',87))
+
+    _saveBooks()
+
+}
+function _createBook(inputName, inputPrice){
+    return  {
         id: makeId(5),
         title: inputName,
         price: inputPrice,
         imgUrl: `${inputName}.jpg`
     }
-    gBooks.push(book)
+    
+}
+
+function _saveBooks() {
+    saveToStorage(EXBOOKS_KEY, gBooks)
 }
