@@ -48,3 +48,15 @@ th{
   .delete{
     background-color: orange;
   }
+ footer {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    bottom:0;
+    min-height: 2vh;
+    height: 2em;
+    width: 100%;
+    padding: 0.5em;
+    background-color: lightblue;
+}

@@ -5,12 +5,14 @@ const CLEAR_SERCH = '✖'
 
 function onInit() {
     render(getBooks())
+    refreshStats()
 }
 
 function onRemoveBook(elBook, bookId) {
     removeBook(bookId)
     render(getBooks())
     successMsg()
+    refreshStats()
 }
 
 function onUpdateBook(elBook, bookId) {
@@ -47,6 +49,7 @@ function onAddSubmit(ev) {
     insertBook(inputName.value, inputPrice.value)
     render(getBooks())
     successMsg()
+    refreshStats()
 }
 
 function successMsg(){
@@ -66,8 +69,7 @@ function openUpdateDialog(bookId) {
     const elDetails = elDialog.querySelector('pre span')
 
     elDetails.innerText = bookId
-    elDialog.showModal()
-    
+    elDialog.showModal() 
 }
 
 function onUpdateClick(ev) {
@@ -81,6 +83,7 @@ function onUpdateClick(ev) {
     elInput.value = ''
     render(getBooks())
     successMsg()
+    refreshStats()
 }
 
 function onSortByTitle(elTitle) {
@@ -118,4 +121,17 @@ function onFilterInput() {
 function onCancelFilter(){
     document.querySelector('input').value=''
     render(getBooks())
+}
+function refreshStats() {
+    const elExpensive = document.querySelector('.expensive')
+    const expensiveBooks = getExpensiveBooks()
+    elExpensive.innerText = expensiveBooks.length
+    
+    const elCheap = document.querySelector('.cheap')
+    const cheapBooks = getCheapBooks()
+    elCheap.innerText = cheapBooks.length
+
+    const elAverage = document.querySelector('.average')
+    const averageBooks = getAverageBooks()
+    elAverage.innerText = averageBooks.length
 }
