@@ -14,6 +14,12 @@ function render(booksData) {
 
     elBook.innerHTML = strHTML.join('')
 }
+function renderNotFound() {
+    const elBook = document.querySelector('.book-data')
+    const strHTML = `<tr><td>No matching books were found</td>
+                                           </tr>`
+    elBook.innerHTML = strHTML
+}
 function renderUpdateDialog() {
     const elDialog = document.querySelector('.update-dialog')
     const strHTML = `<form method="dialog" onsubmit="onUpdateClick(event)">

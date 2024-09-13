@@ -116,7 +116,12 @@ function onFilterInput() {
     const elFilter = document.querySelector('input')
     const filteredBooks = booksData.filter( book => (book.title.includes(elFilter.value)))
 
-    render(filteredBooks)
+    if(filteredBooks.length !== 0){
+        render(filteredBooks)
+    }else{
+        renderNotFound() 
+    }
+
 }
 function onCancelFilter(){
     document.querySelector('input').value=''
