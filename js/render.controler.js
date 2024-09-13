@@ -1,3 +1,5 @@
+'use strict'
+
 
 function render() {
     const booksData = getBooks()
