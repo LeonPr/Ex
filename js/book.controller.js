@@ -1,6 +1,7 @@
 'use strict'
 
-
+const ARROW_DOWN='⬇'
+const CLEAR_SERCH='✖'
 
 function onInit() {
     render(getBooks())
@@ -67,8 +68,12 @@ function onUpdateClick(ev) {
 
 function onSortByTitle(elTitle){
 
+    (elTitle.innerText===ARROW_DOWN) ? elTitle.innerText=CLEAR_SERCH :elTitle.innerText=ARROW_DOWN
+
+
+
 }
 
 function onSortByPrice(elPrice){
-
+    (elTitle.innerText===ARROW_DOWN) ? elTitle.innerText=CLEAR_SERCH :elTitle.innerText=ARROW_DOWN
 }
