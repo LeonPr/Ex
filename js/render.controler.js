@@ -51,7 +51,7 @@ function renderDetailsDialog(bookId) {
                       <img src="img/${book.imgUrl}" alt="">
                       <p>Price :  <span>${book.price}</span></p>
                       <h4>Rating</h4>
-                      <input name="tgTxt" type="number" value="${book.rating}" max="5" min="0" step="1" style="width: 50px;" oninput="onRatingInput(this,${book.id})">
+                      <input name="tgTxt" type="number" value="${book.rating}" max="5" min="0" step="1" style="width: 50px;" oninput="onRatingInput(event,${book.id})">
                       <button class="new-book read" >close</button>
                   </form>`
     elDialog.innerHTML = strHTML
