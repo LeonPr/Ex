@@ -140,3 +140,13 @@ function refreshStats() {
     const averageBooks = getAverageBooks()
     elAverage.innerText = averageBooks.length
 }
+function onRatingInput(ev,bookId){
+    ev.stopPropagation()
+
+    const elDialog = document.querySelector('.update-dialog')
+    const elInput = elDialog.querySelector('input')
+
+    RatingInput(elInput.value,bookId)
+    //console.log('book id', bookId);
+    //console.log('elInput.value', elInput.value);
+}

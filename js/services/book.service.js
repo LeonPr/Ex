@@ -25,6 +25,11 @@ function getAverageBooks() {
     return gBooks.filter(book => {if((book.price >= 80 && book.price <= 200)) return book})
 }
 
+function RatingInput(rating,bookId){
+    const updateBook = gBooks.find(book => book.id === bookId)
+    updateBook.rating = rating
+    _saveBooks()
+}
 function removeBook(bookId) {
     const indx = gBooks.findIndex(book => book.id === bookId)
     gBooks.splice(indx, 1)
@@ -59,7 +64,8 @@ function _createBook(inputName, inputPrice) {
         id: makeId(5),
         title: inputName,
         price: inputPrice,
-        imgUrl: `${inputName}.jpg`
+        imgUrl: `${inputName}.jpg`,
+        rating: 0
     }
 
 }
